@@ -76,15 +76,18 @@
     }
 
     .hero {
-      min-height: 20vh;
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+  min-height: 40vh; /* Adjusted for better space */
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  z-index: 10; /* Ensure it’s above other elements */
+  flex-grow: 1; /* Ensures it takes up available space */
+}
+
 
     .hero h1 span {
       color: var(--accent);
@@ -106,7 +109,7 @@
 
     /* SECTIONS */
     .section {
-      padding: 3rem 2rem;
+      padding: 2rem 1rem;
       max-width: 1000px;
       margin: auto;
     }
@@ -253,7 +256,7 @@
 
 <section id="home" class="hero">
   <h1>Hi, I’m Rishi 👋</h1>
-  <p id="typing">Senior Data Governance Specialist & Technical Product Manager</p>
+  <p id="typing"></p>
     
   <a class="btn" href="assets/Rishi_CV_2025_RWD.pdf" target="_blank">Download Resume</a>
 </section>
