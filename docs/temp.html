@@ -128,26 +128,50 @@
     }
 
     /* BLOG */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
+   .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Increase space between cards */
+  padding-top: 2rem; /* Adding padding to the top for better spacing */
+}
 
-    .blog-card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
 
-    .blog-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
+    /* BLOG CARD */
+.blog-card {
+  background: #38bdf8; /* Light accent color for the blog card */
+  padding: 1.5rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow to make it stand out */
+  color: #111827; /* Dark text for better contrast */
+}
 
-    /* BLOG TAGS */
+/* Hover effect for blog card */
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+/* BLOG CARD */
+.blog-card {
+  background: #38bdf8; /* Light accent color for the blog card */
+  padding: 1.5rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow to make it stand out */
+  color: #111827; /* Dark text for better contrast */
+}
+
+/* Hover effect for blog card */
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* BLOG TAGS */
 .tag {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -155,19 +179,22 @@
   font-weight: 600;
   letter-spacing: 0.03em;
   font-size: 0.75rem;
+  color: #111827; /* Dark color for better contrast */
 }
 
 /* Banking Tag */
 .tag.banking {
-  background: rgba(56, 189, 248, 0.25); /* slightly stronger than before */
-  color: #0ea5e9; /* brighter cyan */
+  background: rgba(34, 197, 94, 0.75); /* Stronger green for the background */
+  color: #111827; /* Dark color for the text */
 }
 
 /* Engineering Tag */
 .tag.engineering {
-  background: rgba(34, 197, 94, 0.25); /* stronger green */
-  color: #22c55e; /* brighter green */
+  background: rgba(34, 197, 94, 0.75); /* Stronger green for the background */
+  color: #111827; /* Dark color for the text */
 }
+
+
 
 
     /* SKILLS */
