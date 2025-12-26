@@ -98,11 +98,27 @@ body {
 }
 
 .footer {
-  background: #0f172a;
-  color: white;
+  background: #1f2933;
+  color: #fff;
   text-align: center;
-  padding: 2rem;
+  padding: 20px;
 }
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-links img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
 
 .timeline {
   padding-left: 0;
