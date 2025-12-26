@@ -10,6 +10,7 @@ body {
   color: #222;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
   position: sticky;
   top: 0;
@@ -17,14 +18,39 @@ body {
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center; /* NEW */
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Remove list styling */
+.nav-links {
+  list-style: none;     /* NEW */
+  display: flex;        /* NEW */
+  gap: 1.5rem;          /* NEW */
+}
+
+.nav-links li {
+  margin: 0;            /* NEW */
 }
 
 .navbar a {
   color: white;
-  margin-left: 1.5rem;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
+.navbar a:hover {
+  color: #38bdf8;
+}
+
+/* ===== HERO ===== */
 .hero {
   text-align: center;
   padding: 5rem 2rem;
@@ -40,6 +66,7 @@ body {
   color: black;
   border-radius: 8px;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .section {
