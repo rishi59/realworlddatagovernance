@@ -119,7 +119,24 @@ body {
   filter: brightness(0) invert(1);
 }
 
+.fa-linkedin {
 
+  color: white;
+}
+
+.fa-instagram {
+  
+  color: white;
+}
+
+.bi-envelope{
+  color: white;
+}
+.social-links{
+  display: flex;
+  justify-content: center;
+  
+}
 .timeline {
   padding-left: 0;
   margin: auto;
