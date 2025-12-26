@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.use(express.static("docs/public"));
+app.use(express.static("public"));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -10,5 +10,5 @@ app.listen(PORT, () => {
 
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/docs/public/index.html");
+  res.sendFile(__dirname + "/docs/index.html");
 });
