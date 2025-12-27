@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Papers and Certifications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0e0f11;
+            color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px;
+            color: #4caf50;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Certification Section */
+        .certifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+
+        .certification-card {
+            background-color: #212529;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            transform: translateX(100%);
+            animation: slideIn 2s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .certification-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .certification-card .details {
+            margin-top: 15px;
+        }
+
+        .certification-card .details h3 {
+            font-size: 1.2rem;
+            color: #f4f4f9;
+        }
+
+        .certification-card .details p {
+            font-size: 0.9rem;
+            color: #9e9e9e;
+        }
+
+        /* Research Papers Section */
+        .research-papers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .research-paper {
+            background-color: #212529;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            animation: slideIn 2s ease-out forwards;
+        }
+
+        .research-paper h3 {
+            font-size: 1.3rem;
+            color: #4caf50;
+        }
+
+        .research-paper a {
+            color: #4caf50;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .research-paper a:hover {
+            text-decoration: underline;
+        }
+
+        .research-paper p {
+            color: #9e9e9e;
+            font-size: 0.9rem;
+        }
+
+        /* Media Query for Small Screens */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .certifications-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Button Styling for Interactivity */
+        .interactive-btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .interactive-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Certifications Section -->
+    <div class="section-title">Certifications</div>
+    <div class="certifications-container">
+        <div class="certification-card">
+            <img src="certificate1.jpg" alt="Certification Image 1">
+            <div class="details">
+                <h3>Google Analytics Certification</h3>
+                <p>Issued by Google</p>
+                <p>Date: June 2023</p>
+            </div>
+        </div>
+        <div class="certification-card">
+            <img src="certificate2.jpg" alt="Certification Image 2">
+            <div class="details">
+                <h3>Microsoft Azure Fundamentals</h3>
+                <p>Issued by Microsoft</p>
+                <p>Date: March 2023</p>
+            </div>
+        </div>
+        <!-- Add more certification cards here -->
+    </div>
+
+    <!-- Research Papers Section -->
+    <div class="section-title">Research Papers</div>
+    <div class="research-papers-container">
+        <div class="research-paper">
+            <h3>Research Paper 1: AI and Data Science</h3>
+            <a href="paper1.pdf" target="_blank">Download PDF</a>
+            <p>Summary: This paper discusses the recent advancements in AI and Data Science and their impact on various industries.</p>
+        </div>
+        <div class="research-paper">
+            <h3>Research Paper 2: Web Development Trends</h3>
+            <a href="paper2.pdf" target="_blank">Download PDF</a>
+            <p>Summary: An analysis of current web development trends and the future of user interfaces and experience.</p>
+        </div>
+        <div class="research-paper">
+            <h3>Research Paper 3: Quantum Computing</h3>
+            <a href="paper3.pdf" target="_blank">Download PDF</a>
+            <p>Summary: This paper covers the basics of quantum computing and its potential to revolutionize various sectors.</p>
+        </div>
+    </div>
+
+    <!-- Interactive Button -->
+    <button class="interactive-btn">Explore More Research</button>
+</div>
+
+<script>
+    // Optionally add interactivity with JS if needed
+    document.querySelector('.interactive-btn').addEventListener('click', function() {
+        alert("More research papers coming soon!");
+    });
+</script>
+
+</body>
+</html>
