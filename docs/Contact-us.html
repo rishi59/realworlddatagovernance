@@ -4,22 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Optional: if you have a separate stylesheet -->
+    <style>
+        /* Reset some default styles */
+        body, h1, p, footer {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #005f73;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .google-form-wrapper {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 1rem;
+            display: none;
+            text-align: center;
+        }
+
+        .message.success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .message.error {
+            background-color: #f44336;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            iframe {
+                height: 600px;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <h1>Contact Us</h1>
     </header>
 
     <section>
         <p>If you have any questions or inquiries, please fill out the form below:</p>
-        
-        <!-- Embed the Google Form here -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScLjTVP-aSkrn3G2a9t5S0Lct9A4Q7M-Ln-TtCL9tPERHD4RA/viewform?embedded=true" width="640" height="1157" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+        <div class="google-form-wrapper">
+            <!-- Embed Google Form here -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScLjTVP-aSkrn3G2a9t5S0Lct9A4Q7M-Ln-TtCL9tPERHD4RA/viewform?embedded=true" frameborder="0">Loading…</iframe>
+        </div>
+
+        <!-- Message Display (Success/Error) -->
+        <div id="response-message" class="message"></div>
     </section>
 
     <footer>
         <p>&copy; 2025 Your Blog Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        // You can simulate a success message when the form is submitted
+        window.addEventListener('message', function(event) {
+            if (event.origin === 'https://docs.google.com' && event.data === 'formResponse') {
+                document.getElementById('response-message').textContent = 'Thank you for reaching out! We will get back to you soon.';
+                document.getElementById('response-message').className = 'message success';
+                document.getElementById('response-message').style.display = 'block';
+            }
+        });
+    </script>
+
 </body>
 </html>
