@@ -1,59 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
-        /* Reset some default styles */
-        body, h1, p, footer {
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --text: #e5e7eb;
+            --accent: #38bdf8;
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #0f172a;
+            --accent: #2563eb;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
         }
 
         body {
-            background-color: #121212;
-            color: #ffffff;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        header {
+        /* NAV */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            background-color: #00bcd4;
-            color: white;
-            padding: 40px 20px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 1rem 2rem;
+            z-index: 100;
         }
 
-        /* Left-aligned company name */
-        .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
             text-decoration: none;
+            font-weight: 500;
         }
 
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: center;
-            flex-grow: 1;
+        .toggle {
+            cursor: pointer;
+            font-size: 1.2rem;
         }
 
+        /* HEADER */
+       header {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--accent);
+    text-align: center; /* Ensures that the text inside h1 is centered */
+}
+
+
+        
+
+        /* SECTION */
         section {
+            padding: 2rem 1rem;
             max-width: 900px;
             margin: 40px auto;
-            padding: 20px;
-            background: #1e1e1e;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
         }
 
@@ -64,12 +103,12 @@
         p {
             font-size: 1.2rem;
             margin-bottom: 20px;
+            color: var(--text);
             text-align: center;
-            color: #aaa;
         }
 
         .google-form-wrapper {
-            border: 2px solid #00bcd4;
+            border: 2px solid var(--accent);
             border-radius: 12px;
             overflow: hidden;
             background: #2a2a2a;
@@ -110,24 +149,14 @@
 
         footer {
             text-align: center;
-            padding: 15px;
-            background-color: #222;
-            color: white;
-            margin-top: 40px;
-            box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            opacity: 0.8;
         }
 
-        /* Add futuristic glowing effect to links */
-        a {
-            text-decoration: none;
-            color: #00bcd4;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(0, 188, 212, 0.8), 0 0 10px rgba(0, 188, 212, 0.9);
+        .social-links a {
+            margin: 0 0.5rem;
+            color: var(--text);
+            font-size: 1.4rem;
         }
 
         /* Responsiveness */
@@ -136,7 +165,7 @@
                 padding: 30px 10px;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             iframe {
                 height: 600px;
@@ -144,10 +173,25 @@
         }
     </style>
 </head>
+
 <body>
 
+    <!-- Navbar (matches index.html) -->
+    <nav class="navbar">
+        <div class="logo">RealWorldDataGovernance</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="Certification-Research.html" target="_blank">Certifications & Research Papers</a></li>
+            <li><a href="Contact-us.html" target="_blank">Contact Us</a></li>
+        </ul>
+        <div class="toggle" id="themeToggle">🌙</div>
+    </nav>
+
+    <!-- Contact Us Section -->
     <header>
-        <a href="#" class="logo">RealWorldDataGovernance.com</a>
+        
         <h1>Contact Us</h1>
     </header>
 
@@ -163,13 +207,20 @@
         <div id="response-message" class="message"></div>
     </section>
 
+    <!-- Footer (matches index.html) -->
     <footer>
-        <p>&copy; 2025 RealWorldDataGovernance. All rights reserved.</p>
+        <p>&copy; 2025 RealWorldDataGovernance.com</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/rishi-c-gupta/" class="fa fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+            <a href="https://www.instagram.com/thisaintrandomrishi" class="fa fa-instagram" aria-label="Instagram" target="_blank"></a>
+            <a href="mailto:contact@realworddatagovernance.com" class="fa fa-envelope" aria-label="Email"></a>
+        </div>
     </footer>
 
     <script>
         // Simulate success message when the form is submitted
-        window.addEventListener('message', function(event) {
+        window.addEventListener('message', function (event) {
             if (event.origin === 'https://docs.google.com' && event.data === 'formResponse') {
                 document.getElementById('response-message').textContent = 'Thank you for reaching out! We will get back to you soon.';
                 document.getElementById('response-message').className = 'message success';
@@ -178,14 +229,20 @@
         });
 
         // Add subtle glow effect when hovering over the form iframe
-        document.querySelector('iframe').addEventListener('mouseenter', function() {
+        document.querySelector('iframe').addEventListener('mouseenter', function () {
             this.style.boxShadow = '0 0 15px rgba(0, 188, 212, 0.8)';
         });
 
-        document.querySelector('iframe').addEventListener('mouseleave', function() {
+        document.querySelector('iframe').addEventListener('mouseleave', function () {
             this.style.boxShadow = 'none';
         });
+
+        document.getElementById("themeToggle").onclick = () => {
+            document.body.dataset.theme =
+                document.body.dataset.theme === "light" ? "" : "light";
+        };
     </script>
 
 </body>
+
 </html>
