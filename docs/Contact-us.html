@@ -1,248 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | RealWorldDataGovernance</title>
 
-    <style>
-        :root {
-            --bg: #0f172a;
-            --card: #111827;
-            --text: #e5e7eb;
-            --accent: #38bdf8;
-        }
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        [data-theme="light"] {
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #0f172a;
-            --accent: #2563eb;
-        }
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, sans-serif;
-        }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+    }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
 
-        /* NAV */
-        .navbar {
-            position: sticky;
-            top: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-            z-index: 100;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
+    /* NAVBAR — SAME AS INDEX */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 100;
+    }
 
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
 
-        .toggle {
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        /* HEADER */
-       header {
-    display: flex;
-    justify-content: center; /* Centers the content horizontally */
-    align-items: center;
-    padding: 20px 40px;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-}
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-header h1 {
-    font-size: 2.5rem;
-    color: var(--accent);
-    text-align: center; /* Ensures that the text inside h1 is centered */
-}
+    .toggle {
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
 
-        
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+    }
 
-        /* SECTION */
-        section {
-            padding: 2rem 1rem;
-            max-width: 900px;
-            margin: 40px auto;
-            background: var(--card);
-            border-radius: 12px;
-            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+    @media (max-width: 768px) {
+      .navbar {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+          "logo actions"
+          "menu menu";
+      }
 
-        section:hover {
-            transform: scale(1.03);
-        }
+      .nav-links {
+        grid-area: menu;
+        flex-direction: column;
+        display: none;
+        margin-top: 1rem;
+      }
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--text);
-            text-align: center;
-        }
+      .nav-links.active {
+        display: flex;
+      }
 
-        .google-form-wrapper {
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            overflow: hidden;
-            background: #2a2a2a;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
+      .hamburger {
+        display: flex;
+      }
+    }
 
-        iframe {
-            width: 100%;
-            height: 800px;
-            border: none;
-            border-radius: 8px;
-            transition: transform 0.2s ease-in-out;
-        }
+    /* PAGE HEADER */
+    .page-header {
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+    }
 
-        iframe:hover {
-            transform: scale(1.05);
-        }
+    .page-header h1 {
+      font-size: 2.2rem;
+      color: var(--accent);
+    }
 
-        .message {
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 1rem;
-            display: none;
-            text-align: center;
-            border-radius: 8px;
-            transition: opacity 0.5s ease-in-out;
-        }
+    .page-header p {
+      margin-top: 0.5rem;
+      opacity: 0.85;
+    }
 
-        .message.success {
-            background-color: #4CAF50;
-            color: white;
-        }
+    /* CONTACT CARD */
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 1.5rem;
+    }
 
-        .message.error {
-            background-color: #f44336;
-            color: white;
-        }
+    .contact-card {
+      background: var(--card);
+      padding: 1.8rem;
+      border-radius: 14px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            opacity: 0.8;
-        }
+    .google-form-wrapper {
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
 
-        .social-links a {
-            margin: 0 0.5rem;
-            color: var(--text);
-            font-size: 1.4rem;
-        }
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+    }
 
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            header {
-                padding: 30px 10px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            iframe {
-                height: 600px;
-            }
-        }
-    </style>
+    .message {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-align: center;
+      display: none;
+    }
+
+    .message.success {
+      background: #22c55e;
+      color: #022c22;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.8;
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      color: var(--text);
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        height: 600px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- Navbar (matches index.html) -->
-    <nav class="navbar">
-        <div class="logo">RealWorldDataGovernance</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="Certification-Research.html" target="_blank">Certifications & Research Papers</a></li>
-            <li><a href="Contact-us.html" target="_blank">Contact Us</a></li>
-        </ul>
-        <div class="toggle" id="themeToggle">🌙</div>
-    </nav>
+<nav class="navbar">
+  <div class="logo">RealWorldDataGovernance</div>
 
-    <!-- Contact Us Section -->
-    <header>
-        
-        <h1>Contact Us</h1>
-    </header>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="Certification-Research.html">Certifications & Research</a></li>
+    <li><a href="Contact-us.html">Contact</a></li>
+  </ul>
 
-    <section>
-        <p>If you have any questions or inquiries, please fill out the form below:</p>
+  <div class="nav-actions">
+    <div class="toggle" id="themeToggle">🌙</div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
 
-        <div class="google-form-wrapper">
-            <!-- Embed Google Form here -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScLjTVP-aSkrn3G2a9t5S0Lct9A4Q7M-Ln-TtCL9tPERHD4RA/viewform?embedded=true" frameborder="0">Loading…</iframe>
-        </div>
+<header class="page-header">
+  <h1>Contact</h1>
+  <p>Have a question, collaboration idea, or inquiry? Let’s talk.</p>
+</header>
 
-        <!-- Message Display (Success/Error) -->
-        <div id="response-message" class="message"></div>
-    </section>
+<section class="section">
+  <div class="contact-card">
+    <p style="text-align:center;">
+      Fill out the form below and I’ll get back to you as soon as possible.
+    </p>
 
-    <!-- Footer (matches index.html) -->
-    <footer>
-        <p>&copy; 2025 RealWorldDataGovernance.com</p>
+    <div class="google-form-wrapper">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLScLjTVP-aSkrn3G2a9t5S0Lct9A4Q7M-Ln-TtCL9tPERHD4RA/viewform?embedded=true">
+        Loading…
+      </iframe>
+    </div>
 
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/rishi-c-gupta/" class="fa fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-            <a href="https://www.instagram.com/thisaintrandomrishi" class="fa fa-instagram" aria-label="Instagram" target="_blank"></a>
-            <a href="mailto:contact@realworddatagovernance.com" class="fa fa-envelope" aria-label="Email"></a>
-        </div>
-    </footer>
+    <div id="response-message" class="message"></div>
+  </div>
+</section>
 
-    <script>
-        // Simulate success message when the form is submitted
-        window.addEventListener('message', function (event) {
-            if (event.origin === 'https://docs.google.com' && event.data === 'formResponse') {
-                document.getElementById('response-message').textContent = 'Thank you for reaching out! We will get back to you soon.';
-                document.getElementById('response-message').className = 'message success';
-                document.getElementById('response-message').style.display = 'block';
-            }
-        });
+<footer class="footer">
+  <p>&copy; 2025 RealWorldDataGovernance.com</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/rishi-c-gupta/" class="fa fa-linkedin" target="_blank"></a>
+    <a href="https://www.instagram.com/thisaintrandomrishi" class="fa fa-instagram" target="_blank"></a>
+    <a href="mailto:contact@realworddatagovernance.com" class="fa fa-envelope"></a>
+  </div>
+</footer>
 
-        // Add subtle glow effect when hovering over the form iframe
-        document.querySelector('iframe').addEventListener('mouseenter', function () {
-            this.style.boxShadow = '0 0 15px rgba(0, 188, 212, 0.8)';
-        });
+<script>
+  document.getElementById("themeToggle").onclick = () => {
+    document.body.dataset.theme =
+      document.body.dataset.theme === "light" ? "" : "light";
+  };
 
-        document.querySelector('iframe').addEventListener('mouseleave', function () {
-            this.style.boxShadow = 'none';
-        });
+  document.getElementById("hamburger").onclick = () => {
+    document.getElementById("navLinks").classList.toggle("active");
+  };
 
-        document.getElementById("themeToggle").onclick = () => {
-            document.body.dataset.theme =
-                document.body.dataset.theme === "light" ? "" : "light";
-        };
-    </script>
+  window.addEventListener("message", function (event) {
+    if (event.origin.includes("google.com")) {
+      const msg = document.getElementById("response-message");
+      msg.textContent = "Thank you for reaching out! I’ll respond shortly.";
+      msg.className = "message success";
+      msg.style.display = "block";
+    }
+  });
+</script>
 
 </body>
-
 </html>
