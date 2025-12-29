@@ -1,31 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Data Governance in Banking | RealWorldDataGovernance.com</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Governance in Banking | RealWorldDataGovernance</title>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: linear-gradient(135deg, #0f172a, #1e293b); color: #fff; padding: 15px; }
-    nav a { color: #fff; margin-right: 15px; text-decoration: none; }
-    .container { padding: 20px; }
-    .comments textarea { width: 100%; height: 100px; }
-    .comments button { margin-top: 10px; }
-    footer { background: #f4f4f4; text-align: center; padding: 10px; }
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: #38bdf8;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAVBAR – SAME AS INDEX */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 100;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .toggle {
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+          "logo actions"
+          "menu menu";
+      }
+
+      .nav-links {
+        grid-area: menu;
+        flex-direction: column;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* ARTICLE LAYOUT */
+    .article {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1.2rem;
+    }
+
+    .article h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-meta {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .article p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    /* COMMENTS */
+    .comments {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 3rem;
+    }
+
+    .comments textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn {
+      margin-top: 1rem;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.8;
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      color: var(--text);
+      font-size: 1.4rem;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>RealWorldDataGovernance.com</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">More</a>
-  </nav>
-</header>
+<nav class="navbar">
+  <div class="logo">RealWorldDataGovernance</div>
 
-<div class="container">
-  <h2>Data Governance in Banking</h2>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="Certification-Research.html">Certifications & Research</a></li>
+    <li><a href="Contact-us.html" target="_blank">Contact</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <div class="toggle" id="themeToggle">🌙</div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <h1>Data Governance in Banking</h1>
+  <div class="article-meta">
+    Banking · Data Governance · Regulatory Compliance
+  </div>
 
   <p>
     Data governance in banking is a critical discipline that ensures data is accurate,
@@ -50,13 +227,34 @@
     <h3>User Comments & Suggestions</h3>
     <textarea placeholder="Share your thoughts or suggestions..."></textarea>
     <br>
-    <button>Submit Comment</button>
+    <button class="btn">Submit Comment</button>
   </div>
-</div>
+</article>
 
-<footer>
+<footer class="footer">
   <p>&copy; 2025 RealWorldDataGovernance.com</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/rishi-c-gupta/"
+       class="fa fa-linkedin"
+       target="_blank"></a>
+    <a href="https://www.instagram.com/thisaintrandomrishi"
+       class="fa fa-instagram"
+       target="_blank"></a>
+    <a href="mailto:contact@realworddatagovernance.com"
+       class="fa fa-envelope"></a>
+  </div>
 </footer>
+
+<script>
+  document.getElementById("themeToggle").onclick = () => {
+    document.body.dataset.theme =
+      document.body.dataset.theme === "light" ? "" : "light";
+  };
+
+  document.getElementById("hamburger").onclick = () => {
+    document.getElementById("navLinks").classList.toggle("active");
+  };
+</script>
 
 </body>
 </html>

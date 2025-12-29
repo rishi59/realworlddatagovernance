@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certifications | Rishi Gupta | Data Governance Leader</title>
+  <title>Certifications & Research | Rishi Gupta</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <style>
     :root {
       --bg: #0f172a;
@@ -33,23 +33,24 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      scroll-behavior: smooth;
     }
 
-    /* NAV */
+    /* NAVBAR – SAME AS INDEX */
     .navbar {
       position: sticky;
       top: 0;
       background: rgba(0,0,0,0.5);
       backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
       padding: 1rem 2rem;
       z-index: 100;
     }
 
     .nav-links {
       display: flex;
+      justify-content: center;
       gap: 1.5rem;
       list-style: none;
     }
@@ -60,131 +61,124 @@
       font-weight: 500;
     }
 
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
     .toggle {
       cursor: pointer;
       font-size: 1.2rem;
     }
 
-    /* SECTION STYLING */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+          "logo actions"
+          "menu menu";
+      }
+
+      .nav-links {
+        grid-area: menu;
+        flex-direction: column;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* SECTIONS */
     .section {
-      padding: 2rem 1rem;
       max-width: 1000px;
       margin: auto;
+      padding: 3rem 1rem;
     }
 
-    /* CERTIFICATIONS SECTION */
-    .certifications-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin: 40px 0;
-      overflow: hidden;
+    h2 {
+      margin-bottom: 0.5rem;
     }
 
-    .certification-card {
+    /* CERTIFICATIONS GRID */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .cert-card {
+      background: var(--card);
+      padding: 1.2rem;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .cert-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cert-card h3 {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    .cert-card p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* RESEARCH */
+    .research-card {
       background: var(--card);
       padding: 1.5rem;
       border-radius: 12px;
-      width: 250px;
-      transform: translateX(100%);
-      animation: slideIn 2s ease-out forwards;
+      margin-top: 1.5rem;
     }
 
-    @keyframes slideIn {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-
-    .certification-card img {
-  width: 100%;                    /* Ensure images fill the container */
-  height: 200px;                  /* Set a fixed height to standardize all images */
-  object-fit: cover;              /* Ensure the image is cropped to fit the aspect ratio */
-  border-radius: 10px;            /* Rounded corners for a sleek look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow effect to lift the images */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-}
-/* Placecard effect on hover */
-.certification-card img:hover {
-  transform: scale(1.05);         /* Slightly enlarge the image */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
-}
-/* Style for the certification cards */
-.certification-card {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: 12px;
-  width: 250px;
-  transform: translateX(100%);     /* Start position for animation */
-  animation: slideIn 2s ease-out forwards;
-}
-
-/* Slide-in animation for certification cards */
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-    .certification-card .details {
-      margin-top: 15px;
-    }
-
-    .certification-card .details h3 {
-      font-size: 1.2rem;
-      color: var(--text);
-    }
-
-    .certification-card .details p {
-      font-size: 0.9rem;
-      color: #9e9e9e;
-    }
-
-    /* RESEARCH PAPERS SECTION */
-    .research-papers-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin: 40px 0;
-    }
-
-    .research-paper {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 12px;
-    }
-
-    .research-paper h3 {
-      font-size: 1.3rem;
+    .research-card h3 {
       color: var(--accent);
+      margin-bottom: 0.5rem;
     }
 
-    /* Style for the Download PDF button */
-.research-paper a {
-  display: inline-block;           /* Make it behave like a button */
-  padding: 0.75rem 1.5rem;         /* Add some space inside the button */
-  background-color: var(--accent); /* Use the accent color for background */
-  color: white;                    /* White text color */
-  text-decoration: none;           /* Remove the underline from the link */
-  border-radius: 8px;              /* Rounded corners */
-  font-size: 1rem;                 /* Adjust the font size */
-  margin-top: 1rem;                /* Space between text and button */
-  transition: background-color 0.3s ease; /* Smooth color transition */
-}
-
-/* Button hover effect */
-.research-paper a:hover {
-  background-color: #2563eb;       /* Darken the accent color on hover */
-}
-
-    .research-paper p {
-      color: #9e9e9e;
-      font-size: 0.9rem;
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
     }
 
     /* FOOTER */
@@ -200,7 +194,7 @@
       font-size: 1.4rem;
     }
 
-    /* REVEAL ANIMATION */
+    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -216,124 +210,124 @@
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo">RealWorldDataGovernance</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#more">More</a></li>
-    <li><a href="Contact-us.html" target="_blank">Contact us</a></li>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="Certification-Research.html">Certifications & Research</a></li>
+    <li><a href="Contact-us.html" target="_blank">Contact</a></li>
   </ul>
-  <div class="toggle" id="themeToggle">🌙</div>
+
+  <div class="nav-actions">
+    <div class="toggle" id="themeToggle">🌙</div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
 </nav>
 
-<!-- CERTIFICATIONS SECTION -->
-<section id="certifications" class="section">
+<section class="section">
   <h2>Certifications</h2>
-  <p>Here are some of my professional certifications in data governance and analytics.</p>
+  <p>Industry-recognized credentials across data governance, cloud, and analytics.</p>
 
-  <div class="certifications-container">
-    <!-- Certification 1 -->
-    <div class="certification-card">
+  <div class="cert-grid">
+    <div class="cert-card">
       <a href="assets/IMG_Google_Analytics Individual Qual.JPG" target="_blank">
-        <img src="assets/IMG_Google_Analytics Individual Qual.JPG" alt="Google Analytics Certification">
+        <img src="assets/IMG_Google_Analytics Individual Qual.JPG">
       </a>
-      <div class="details">
-        <h3>Google Analytics Certification</h3>
-        <p>Issued by Google</p>
-        <p>Date: June 2023</p>
-      </div>
+      <h3>Google Analytics Certification</h3>
+      <p>Google · 2023</p>
     </div>
 
-    <!-- Certification 2 -->
-    <div class="certification-card">
+    <div class="cert-card">
       <a href="assets/IMG_Microsoft_Big Data.JPG" target="_blank">
-        <img src="assets/IMG_Microsoft_Big Data.JPG" alt="Microsoft Azure Fundamentals">
+        <img src="assets/IMG_Microsoft_Big Data.JPG">
       </a>
-      <div class="details">
-        <h3>Microsoft Azure Fundamentals</h3>
-        <p>Issued by Microsoft</p>
-        <p>Date: March 2023</p>
-      </div>
+      <h3>Microsoft Azure Fundamentals</h3>
+      <p>Microsoft · 2023</p>
     </div>
 
-    <!-- Certification 3 -->
-    <div class="certification-card">
+    <div class="cert-card">
       <a href="assets/IMG_Oracle_OCI-gen AI.jfif" target="_blank">
-        <img src="assets/IMG_Oracle_OCI-gen AI.jfif" alt="Oracle Generative AI">
+        <img src="assets/IMG_Oracle_OCI-gen AI.jfif">
       </a>
-      <div class="details">
-        <h3>Oracle Generative AI</h3>
-        <p>Issued by Oracle</p>
-        <p>Date: March 2023</p>
-      </div>
+      <h3>Oracle Generative AI</h3>
+      <p>Oracle · 2023</p>
     </div>
 
-    <!-- Certification 4 -->
-    <div class="certification-card">
+    <div class="cert-card">
       <a href="assets/IMG_GCP_Building Batch Data Pipeline.JPG" target="_blank">
-        <img src="assets/IMG_GCP_Building Batch Data Pipeline.JPG" alt="Google Cloud Platform Batch Data Pipeline">
+        <img src="assets/IMG_GCP_Building Batch Data Pipeline.JPG">
       </a>
-      <div class="details">
-        <h3>Google Cloud Platform Batch Data Pipeline</h3>
-        <p>Issued by Google</p>
-        <p>Date: March 2023</p>
-      </div>
+      <h3>GCP Batch Data Pipelines</h3>
+      <p>Google Cloud</p>
     </div>
 
-    <!-- Certification 5 -->
-    <div class="certification-card">
+    <div class="cert-card">
       <a href="assets/IMG_DAMA_CDMP.JPG" target="_blank">
-        <img src="assets/IMG_DAMA_CDMP.JPG" alt="DAMA-Certified Data Management Professional">
+        <img src="assets/IMG_DAMA_CDMP.JPG">
       </a>
-      <div class="details">
-        <h3>DAMA-Certified Data Management Professional</h3>
-        <p>Issued by DAMA</p>
-        <p>Date: March 2023</p>
-      </div>
+      <h3>DAMA CDMP</h3>
+      <p>Data Management Professional</p>
     </div>
   </div>
 </section>
 
-
-<!-- RESEARCH PAPERS SECTION -->
-<section id="research-papers" class="section">
+<section class="section">
   <h2>Research Papers</h2>
-  <p>These are some of my research papers on data governance and analytics.</p>
+  <p>Selected academic and applied research in data analytics and systems engineering.</p>
 
-  <div class="research-papers-container">
-    <!-- Research Paper 1 -->
-    <div class="research-paper">
-      <h3>Research Paper 1: Credit Card Fraud Detection Using Ensemble Learning Algorithm</h3>
-      <a href="assets/Credit Card Fraud Detection Using Ensemble Learning Algorithm- Thesis.pdf" target="_blank">Download PDF</a>
-      <p>Summary: The main aim of this project is to efficiently evaluate the detection of fraud while transacting credit card, this is achieved by applying two boosting algorithms i.e. Adaptive Boosting (AdaBoost) and Gradient Boosting technique.</p>
-    </div>
+  <div class="research-card">
+    <h3>Credit Card Fraud Detection Using Ensemble Learning Algorithm</h3>
+    <p>
+      Summary: The main aim of this project is to efficiently evaluate the detection of fraud
+      while transacting credit cards. This is achieved by applying two boosting algorithms:
+      Adaptive Boosting (AdaBoost) and Gradient Boosting techniques.
+    </p>
+    <a class="btn"
+       href="assets/Credit Card Fraud Detection Using Ensemble Learning Algorithm- Thesis.pdf"
+       target="_blank">
+      Download PDF
+    </a>
+  </div>
 
-    <!-- Research Paper 2 -->
-    <div class="research-paper">
-      <h3>Research Paper 2: Raspberry Pi Based Home Automation</h3>
-      <a href="assets/Raspberry_Pi_Based_Home_Automation.pdf" target="_blank">Download PDF</a>
-      <p>Summary: In this project, we are going to implement a system for home automation system, mainly for regular size homes. This will be useful to monitor your active/ inactive electric home appliances on go into the mobile/ tablet display itself.</p>
-    </div>
+  <div class="research-card">
+    <h3>Raspberry Pi Based Home Automation</h3>
+    <p>
+      Summary: This project implements a home automation system for regular-size homes,
+      enabling monitoring and control of active and inactive electrical appliances remotely
+      via mobile or tablet interfaces.
+    </p>
+    <a class="btn"
+       href="assets/Raspberry_Pi_Based_Home_Automation.pdf"
+       target="_blank">
+      Download PDF
+    </a>
+  </div>
 
-    <!-- Research Paper 3 -->
-    <div class="research-paper">
-      <h3>Research Paper 3: Student Cash Manager</h3>
-      <a href="assets/Student_Cash_Manager.pdf" target="_blank">Download PDF</a>
-      <p>Summary: A Student Cash Manager in college is typically responsible for overseeing and managing financial transactions related to student accounts, scholarships, or campus services.</p>
-    </div>
+  <div class="research-card">
+    <h3>Student Cash Manager</h3>
+    <p>
+      Summary: A Student Cash Manager system designed to oversee and manage financial
+      transactions related to student accounts, scholarships, and campus services
+      within educational institutions.
+    </p>
+    <a class="btn"
+       href="assets/Student_Cash_Manager.pdf"
+       target="_blank">
+      Download PDF
+    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
+
 <footer class="footer">
   <p>&copy; 2025 RealWorldDataGovernance.com</p>
   <div class="social-links">
     <a href="https://www.linkedin.com/in/rishi-c-gupta/" class="fa fa-linkedin" target="_blank"></a>
     <a href="https://www.instagram.com/thisaintrandomrishi" class="fa fa-instagram" target="_blank"></a>
-    <a href="mailto:contact@realworddatagovernance.com" class="fa fa-envelope" aria-label="Email"></a>
+    <a href="mailto:contact@realworddatagovernance.com" class="fa fa-envelope"></a>
   </div>
 </footer>
 
@@ -343,15 +337,11 @@
       document.body.dataset.theme === "light" ? "" : "light";
   };
 
-  // Reveal animations
-  const reveals = document.querySelectorAll(".reveal");
-  window.addEventListener("scroll", () => {
-    reveals.forEach(r => {
-      if (r.getBoundingClientRect().top < window.innerHeight - 100) {
-        r.classList.add("visible");
-      }
-    });
-  });
+  document.getElementById("hamburger").onclick = () => {
+    document.getElementById("navLinks").classList.toggle("active");
+  };
+
+  
 </script>
 
 </body>
