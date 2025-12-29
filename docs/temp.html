@@ -71,12 +71,14 @@
     /* HERO */
 
     .hero-image {
-        border-radius: 50%; /* Makes it a circle */
-        width: 150px; /* Adjust size as needed */
-        height: 150px; /* Ensure it's a square to keep it circular */
-        object-fit: cover; /* Makes sure the image covers the area without stretching */
-        margin-top: 20px; /* Add some space above the image */
-    }
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+
 
     .hero {
   min-height: 40vh; /* Adjusted for better space */
@@ -342,6 +344,15 @@ html, body {
       opacity: 1;
       transform: none;
     }
+@media (min-width: 768px) {
+  .hero-image {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+
+
   </style>
 </head>
 
@@ -372,11 +383,22 @@ html, body {
 
 
 <section id="home" class="hero">
+
+  <!-- Profile Photo -->
+  <img 
+    src="assets/profile.jpg" 
+    alt="Rishi Gupta" 
+    class="hero-image"
+  />
+
   <h1>Hi, I’m Rishi 👋</h1>
   <p id="typing"></p>
 
-  <a class="btn" href="assets/Rishi_CV_2025_RWD.pdf" target="_blank">Download Resume</a>
+  <a class="btn" href="assets/Rishi_CV_2025_RWD.pdf" target="_blank">
+    Download Resume
+  </a>
 </section>
+
 
 
 <section id="about" class="section reveal">
