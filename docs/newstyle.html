@@ -38,21 +38,24 @@
 
     /* NAV */
     .navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      z-index: 100;
-    }
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 100;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
+/* Center nav links on desktop */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+}
 
     .nav-links a {
       color: var(--text);
@@ -237,11 +240,20 @@
     }
 
     /* Prevent horizontal scroll */
+/* Prevent horizontal scroll */
 html, body {
   overflow-x: hidden;
 }
 
-/* Hamburger icon */
+/* Right-side actions container */
+/* Right-side actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -250,42 +262,55 @@ html, body {
 }
 
 .hamburger span {
-  width: 25px;
+  width: 24px;
   height: 3px;
   background: var(--text);
   border-radius: 2px;
 }
 
-/* Mobile styles */
+/* Mobile layout */
 @media (max-width: 768px) {
   .navbar {
-    flex-wrap: wrap;
-    padding: 1rem;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "logo actions"
+      "menu menu";
   }
 
-  .hamburger {
-    display: flex;
+  .logo {
+    grid-area: logo;
+  }
+
+  .nav-actions {
+    grid-area: actions;
   }
 
   .nav-links {
-    width: 100%;
+    grid-area: menu;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
     display: none;
+    width: 100%;
   }
 
   .nav-links.active {
     display: flex;
   }
 
+  .hamburger {
+    display: flex;
+  }
+}
+
+
   .toggle {
     position: absolute;
     right: 1rem;
     top: 1rem;
   }
-}
+
 
 
     .year {
@@ -325,13 +350,6 @@ html, body {
 <nav class="navbar">
   <div class="logo">RealWorldDataGovernance</div>
 
-  <!-- Hamburger -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
   <ul class="nav-links" id="navLinks">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -340,8 +358,17 @@ html, body {
     <li><a href="Contact-us.html" target="_blank">Contact</a></li>
   </ul>
 
-  <div class="toggle" id="themeToggle">🌙</div>
+  <div class="nav-actions">
+    <div class="toggle" id="themeToggle">🌙</div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 </nav>
+
 
 
 <section id="home" class="hero">
